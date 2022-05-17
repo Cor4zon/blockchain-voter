@@ -16,7 +16,7 @@ const VotingInfo = () => {
             const voting = votings.filter(item => item.id === +params.voting_id);
             setVoting(voting[0])
         });
-    }, [voting]);
+    }, []);
 
     return (
         <div>
