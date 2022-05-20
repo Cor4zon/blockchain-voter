@@ -6,6 +6,8 @@ import MainContent from "./components/UI/MainContent/MainContent";
 import VotingList from "./components/VotingList/VotingList";
 import VotingInfo from "./components/VotingList/VotingInfo/VotingInfo";
 import Voting from "./components/VotingList/Voting/Voting";
+import Keys from './components/Keys/Keys';
+
 
 const root = ReactDOM.createRoot(
     document.getElementById("root")
@@ -20,8 +22,8 @@ root.render(
                     <Route index path="" element={<VotingList />} />
                     <Route path=":voting_id" element={<VotingInfo />} />
                 </Route>
+                <Route path="keys" element={<Keys />} />
                 {/**/}
-                {/*<Route path="voter" element={<VoterForm />} />*/}
                 {/*<Route path="voting_option" element={<VotingOptionForm />} />*/}
             </Route>
         </Routes>
