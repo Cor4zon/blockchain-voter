@@ -135,6 +135,19 @@ class APIClient {
                 })
         )
     }
+
+    voteFor(voterId, voteFor) {
+        const wrapper = new AxiosWrapper('http://127.0.0.1:8000/adminApp/voters/' + voterId + '/');
+        return Promise.resolve(
+            wrapper.patch(
+                {
+                    voteFor: voteFor
+                }
+            ).catch((error) => console.error(error.response) )
+        )
+    }
 }
+
+
 
 export default APIClient;
