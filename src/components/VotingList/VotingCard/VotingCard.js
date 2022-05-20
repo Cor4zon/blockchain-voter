@@ -29,6 +29,7 @@ const VotingCard = ({ voting }) => {
             <Link to={`${voting.id}`} >
                 <h3> { voting.title } </h3>
             </Link>
+            <hr />
             <p> { voting.description } </p>
             <p> { voting.deadline } </p>
             { displayVotingOptions }
