@@ -135,6 +135,29 @@ class APIClient {
                 })
         )
     }
+
+    voteFor(voterId, voteFor) {
+        const wrapper = new AxiosWrapper('http://127.0.0.1:8000/adminApp/voters/' + voterId + '/');
+        return Promise.resolve(
+            wrapper.patch(
+                {
+                    voteFor: voteFor
+                }
+            ).catch((error) => console.error(error.response) )
+        )
+    }
+
+    fetchVotingResult(votingId) {
+        const wrapper = new AxiosWrapper('http://127.0.0.1:8000/blockchain/result/' + votingId);
+        return Promise.resolve(
+            wrapper.get()
+                .catch((error) => {
+                    this.storage.clear();
+                    console.error(error);
+                    return Promise.reject(error);
+                })
+        )
+    }
 }
 
 export default APIClient;
