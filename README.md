@@ -1,1 +1,9 @@
-# Voter client for Blockchain e-voting system
+# Voter Client 
+
+### Функции 
+
+1. Сгенерировать пару ключей 
+
+2. Проголосовать 
+
+3. Посмотреть результаты голосования 
