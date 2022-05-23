@@ -2,8 +2,33 @@
 
 .content {
     width: 100%;
-    height: 80%;
-    background: burlywood;
+    background: ghostwhite;
 
     display: flex;
+    justify-content: center;
+}
+
+
+.action-link {
+    block-size: border-box;
+    height: 600px;
+    width: 100%;
+    border: 2px black solid;
+    border-radius: 8px;
+    margin: 3rem 0 3rem 2rem;
+}
+
+.get-keys {
+    background-image: url("../../../../public/get-keys.png");
+    /*background-position: center;*/
+}
+
+.add-vote {
+    background-image: url("../../../../public/add-vote.png");
+    background-position: center left 15%;
+}
+
+.check-results {
+    background-image: url("../../../../public/check-results.png");
+    background-position: center top -5px;
 }

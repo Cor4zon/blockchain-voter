@@ -147,6 +147,23 @@ class APIClient {
         )
     }
 
+    vote(pubkey, privkey, choice) {
+        const wrapper = new AxiosWrapper('http://localhost:8000/vote/');
+        if (pubkey.length > 0 && privkey.length > 0) {
+            return Promise.resolve(
+                wrapper.post(
+                    {
+                        pubkey: pubkey,
+                        privkey: privkey,
+                        choice: choice
+                    }
+                ).catch((error) => console.error(error.response) )
+            )
+        } else {
+            return Promise.reject("Please, enter information");
+        }
+    }
+
     fetchVotingResult(votingId) {
         const wrapper = new AxiosWrapper('http://127.0.0.1:8000/blockchain/result/' + votingId);
         return Promise.resolve(

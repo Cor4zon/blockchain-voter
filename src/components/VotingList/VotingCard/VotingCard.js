@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import APIClient from "../../../services/APIClient";
 
 import VotingOption from "../VotingOption/VotingOption";
+import './VotingCard.css';
 
 const VotingCard = ({ voting }) => {
     const [ votingOptions, setVotingOptions ] = useState([]);
@@ -25,15 +26,27 @@ const VotingCard = ({ voting }) => {
 
 
     return (
-        <div>
-            <Link to={`${voting.id}`} >
-                <h3> { voting.title } </h3>
-            </Link>
-            <hr />
-            <p> { voting.description } </p>
-            <p> { voting.deadline } </p>
-            { displayVotingOptions }
-        </div>
+        // <div>
+        //     <Link to={`${voting.id}`} >
+        //         <h3> { voting.title } </h3>
+        //     </Link>
+        //     <hr />
+        //     <p> { voting.description } </p>
+        //     <p> { voting.deadline } </p>
+        // </div>
+
+
+    <div className="voting-card">
+        <Link to={`${voting.id}`} className="voting-card__link">
+            <h3> { voting.title } </h3>
+            <p className="voting-card__description"> { voting.description } </p>
+
+            <i className="fa-solid fa-timer"></i>
+            <p className="voting-card__deadline"> { voting.deadline } </p>
+        </Link>
+        { displayVotingOptions }
+
+    </div>
     );
 };
 

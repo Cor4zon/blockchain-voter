@@ -1,24 +1,24 @@
-import React from 'react';
-import APIClient from "../../../services/APIClient";
+import React, { useState } from 'react';
+import SubmitChoice from "../SubmitChoice/SubmitChoice";
 
 const VotingOption = ({ votingOption }) => {
-    const client = new APIClient();
+    const [ isVoting, setIsVoting ] = useState(false);
+
 
     const voteForPerson = (event) => {
         event.preventDefault();
-        let voterId = 2;    // заглушка
-
-        client.voteFor(voterId, votingOption.id).then(() => {
-            console.log(`you vote for ${votingOption.id}`);
-        })
-
+        setIsVoting(true)
         console.log(votingOption.id);
     }
 
     return (
         <div key={ votingOption.id } className="optionID" >
             <h3> { votingOption.title } </h3>
-            <button onClick={voteForPerson}>vote</button>
+
+            {isVoting ? <SubmitChoice voterId={2} choice={votingOption.id} />
+                : <button onClick={voteForPerson}>vote</button>
+            }
+
         </div>
     );
 };
