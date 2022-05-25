@@ -15,7 +15,7 @@ class AxiosWrapper {
         return Promise.resolve(
             axios.post(
                 this.path,
-                data,
+                data
             )
         )
     }
@@ -30,10 +30,24 @@ class AxiosWrapper {
         return Promise.resolve(
             axios.patch(
                 this.path,
-                data,
+                data
             )
         )
     }
+
+    // patch(data) {
+    //     return Promise.resolve(
+    //         axios.patch(
+    //             this.path,
+    //             data,
+    //             {
+    //                 validateStatus: function (status) {
+    //                     return status < 400; // Resolve only if the status code is less than 500
+    //                 }
+    //             }
+    //         )
+    //     )
+    // }
 }
 
 export default AxiosWrapper;

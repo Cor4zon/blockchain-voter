@@ -19,23 +19,13 @@ const VotingCard = ({ voting }) => {
     const displayVotingOptions = votingOptions.map((item) => {
         if (item.voting === voting.id) {
             return (
-                <VotingOption key={item.id} votingOption={item} />
+                <VotingOption key={item.id} votingOption={item} votingId={voting.id} />
             )
         }
     });
 
 
     return (
-        // <div>
-        //     <Link to={`${voting.id}`} >
-        //         <h3> { voting.title } </h3>
-        //     </Link>
-        //     <hr />
-        //     <p> { voting.description } </p>
-        //     <p> { voting.deadline } </p>
-        // </div>
-
-
     <div className="voting-card">
         <Link to={`${voting.id}`} className="voting-card__link">
             <h3> { voting.title } </h3>

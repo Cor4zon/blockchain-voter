@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import SubmitChoice from "../SubmitChoice/SubmitChoice";
+import Button from "@mui/material/Button";
+import './VotingOption.css';
 
-const VotingOption = ({ votingOption }) => {
+import SubmitChoiceModal from "../SubmitChoiceModal/SubmitChoiceModal";
+
+const VotingOption = ({ votingOption, votingId }) => {
     const [ isVoting, setIsVoting ] = useState(false);
-
 
     const voteForPerson = (event) => {
         event.preventDefault();
@@ -15,9 +18,7 @@ const VotingOption = ({ votingOption }) => {
         <div key={ votingOption.id } className="optionID" >
             <h3> { votingOption.title } </h3>
 
-            {isVoting ? <SubmitChoice voterId={2} choice={votingOption.id} />
-                : <button onClick={voteForPerson}>vote</button>
-            }
+            <SubmitChoiceModal choice={votingOption.id} votingId={votingId} />
 
         </div>
     );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import APIClient from "../../services/APIClient";
+import Button from '@mui/material/Button';
 import "./Keys.css";
 
 const Keys = () => {
@@ -17,7 +18,7 @@ const Keys = () => {
     }
 
     return (
-        <div>
+        <div className="key-generator__content">
             <h1>Key generator</h1>
             <h3>Pubkey: </h3>
             <textarea id="pubkey" value={pubkey} name="pubkey" rows="10" cols="133" placeholder="Public key" disabled />
@@ -25,7 +26,7 @@ const Keys = () => {
             <textarea id="privkey" value={privkey} name="privkey" rows="10" cols="133" placeholder="Private key" disabled />
 
             <br />
-            <button onClick={ generateKeysHandler }>Generate keys</button>
+            <Button variant="contained" onClick={ generateKeysHandler }>Generate keys</Button>
         </div>
     );
 };

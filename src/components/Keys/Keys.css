@@ -1,0 +1,13 @@
+
+.key-generator__content {
+    padding-left: 2rem;
+}
+
+h1, h3, textarea {
+    font-family: 'Akshar', sans-serif;
+}
+
+textarea {
+    text-align: center;
+}
+

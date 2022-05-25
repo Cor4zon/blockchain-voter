@@ -11,13 +11,15 @@ const VotingList = () => {
         client.fetchVotings().then((result) => {
             setVotings(result.data)
         });
-    }, [votings]);
+    }, []);
+
+    const votingList = votings.map(voting => {
+        return <VotingCard key={voting.id} voting={voting} />
+    });
 
     return (
         <div>
-            { votings.map(voting => {
-                return <VotingCard key={voting.id} voting={voting} />
-            }) }
+            { votingList }
         </div>
     );
 };
