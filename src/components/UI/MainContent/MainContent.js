@@ -13,7 +13,7 @@ const MainContent = () => {
             <Link to="voting" className="action-link add-vote">
                 <ActionCard text={"Голосовать"} />
             </Link>
-            <Link to="voting_results" className="action-link check-results">
+            <Link to="results" className="action-link check-results">
                 <ActionCard text={"Посмотреть результаты"} />
             </Link>
         </div>
