@@ -2,3 +2,9 @@
 .vote-btn {
     margin-left: 8px;
 }
+
+.voting-card__option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
