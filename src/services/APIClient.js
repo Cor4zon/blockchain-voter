@@ -95,6 +95,30 @@ class APIClient {
         )
     }
 
+    fetchOneVotingOption(id) {
+        const wrapper = new AxiosWrapper('http://localhost:8000/adminApp/voting_options/' + id);
+        return Promise.resolve(
+            wrapper.get()
+                .catch((error) => {
+                    this.storage.clear();
+                    console.error(error);
+                    return Promise.reject(error);
+                })
+        )
+    }
+
+    getVotingOption(id) {
+        const wrapper = new AxiosWrapper('http://localhost:8000/adminApp/voting_options/' + id);
+        return Promise.resolve(
+            wrapper.get()
+                .catch((error) => {
+                    this.storage.clear();
+                    console.error(error);
+                    return Promise.reject(error);
+                })
+        )
+    }
+
     addVotingOption(title, description, voting, pubkey, privkey) {
         const wrapper = new AxiosWrapper('http://localhost:8000/adminApp/voting_options/');
         if (pubkey.length > 0) {
@@ -165,7 +189,7 @@ class APIClient {
     }
 
     fetchVotingResult(votingId) {
-        const wrapper = new AxiosWrapper('http://127.0.0.1:8000/blockchain/result/' + votingId);
+        const wrapper = new AxiosWrapper('http://127.0.0.1:8000/adminApp/votings/' + votingId + '/results');
         return Promise.resolve(
             wrapper.get()
                 .catch((error) => {
