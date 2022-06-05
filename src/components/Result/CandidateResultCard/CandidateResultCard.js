@@ -5,9 +5,8 @@ import APIClient from "../../../services/APIClient";
 const CandidateResultCard = ({ candidateInfo }) => {
     const [ candidate, setCandidate ] = useState({});
     const client = new APIClient();
-
     useEffect(() => {
-        client.fetchVotingOption(+candidateInfo[0]).then((result) => {
+        client.fetchOneVotingOption(+candidateInfo[0]).then((result) => {
             console.log(result.data);
             setCandidate({...result.data});
         })

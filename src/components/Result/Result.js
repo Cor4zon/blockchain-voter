@@ -1,37 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import APIClient from "../../services/APIClient";
-import ResultCard from "./ResultCard";
-import VotingOption from "../VotingList/VotingOption/VotingOption";
-import {useParams} from "react-router-dom";
+import ResultCard from "./ResultCard/ResultCard";
+import VotingList from "../VotingList/VotingList";
+import {Outlet} from "react-router-dom";
 
-const Result = ({ votingId }) => {
-    let params = useParams();
-
-    const [ votingResult, setVotingResult ] = useState([])
-    const client = new APIClient();
-
-    useEffect(() => {
-        client.fetchVotingResult(params.voting_id).then((result) => {
-            setVotingResult(() => {
-                return Object.entries(result.data);
-            })
-        })
-    }, []);
-
-    const displayResults = (
-        votingResult.map((item, index) => {
-            return (
-                <div key={index}>
-                    <hr />
-                    <ResultCard  option={item[0]} voices={item[1]} />
-                </div>
-            )
-        })
-    )
-
+const Result = () => {
     return (
         <>
-            { displayResults }
+            <div>
+                <Outlet />
+            </div>
         </>
     );
 };

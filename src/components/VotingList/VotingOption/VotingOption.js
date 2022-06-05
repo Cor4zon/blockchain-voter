@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import SubmitChoice from "../SubmitChoice/SubmitChoice";
-import Button from "@mui/material/Button";
-import './VotingOption.css';
 
 import SubmitChoiceModal from "../SubmitChoiceModal/SubmitChoiceModal";
+import './VotingOption.css';
 
 const VotingOption = ({ votingOption, votingId }) => {
     const [ isVoting, setIsVoting ] = useState(false);
@@ -15,11 +13,9 @@ const VotingOption = ({ votingOption, votingId }) => {
     }
 
     return (
-        <div key={ votingOption.id } className="optionID" >
+        <div key={ votingOption.id } className="voting-card__option" >
             <h3> { votingOption.title } </h3>
-
             <SubmitChoiceModal choice={votingOption.id} votingId={votingId} />
-
         </div>
     );
 };
